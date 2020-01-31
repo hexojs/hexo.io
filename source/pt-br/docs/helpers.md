@@ -699,18 +699,25 @@ Insere dados do [Open Graph].
 
 Opção | Descrição | Padrão
 --- | --- | ---
-`title` | Título da página (`og:title`) | `page.title`
-`type` | Tipo de página (`og:type`) | blog
+`title` | Título da página (`og:title`) | `page.title` or `config.title`
+`type` | Page type (`og:type`) | `article` (post) or `website` (page).
 `url` | URL da página (`og:url`) | `url`
-`image` | Capa da página (`og:image`) | Primeira imagem no conteúdo
+`image` | Capa da página (`og:image`) | Every image in the content
 `site_name` | Nome do site (`og:site_name`) | `config.title`
 `description`| Descrição da página (`og:description`) | Trecho da página ou os 200 primeiros caracteres do conteúdo
-`twitter_card` | Tipo de Twitter card (`twitter:card`) | summary
+`twitter_card` | Tipo de Twitter card (`twitter:card`) \ | summary
 `twitter_id` | Twitter ID (`twitter:creator`) |
 `twitter_site` | Site do Twitter (`twitter:site`) |
 `google_plus` | Link de perfil do Google+ |
 `fb_admins` | ID de administrador do Facebook |
 `fb_app_id` | ID da aplicação do Facebook |
+`date` | Article published date | `page.date` if exists
+`updated` | Article modified time | `page.updated` if exists
+`language` | Article language | `page.lang` or `config.language`
+
+{% note warn %}
+`og:locale` tag won't be added if given `language` is not in 'language-TERRITORY' (_dash must be used for multilingual support, dash is automatically transformed to underscore in `og:locale`_) format. Refer to the [official list](https://developers.facebook.com/docs/messenger-platform/messenger-profile/supported-locales/) of valid locales.
+{% endnote %}
 
 ### toc
 

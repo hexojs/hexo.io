@@ -694,10 +694,10 @@ Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 
 옵션 | 설명 | 기본 값
 --- | --- | ---
-`title` | 페이지 제목 (`og:title`) | `page.title`
-`type` | 페이지 형태 (`og:type`) | blog
+`title` | 페이지 제목 (`og:title`) | `page.title` or `config.title`
+`type` | 페이지 형태 (`og:type`) | `article` (post) or `website` (page).
 `url` | 페이지 URL (`og:url`) | `url`
-`image` | 페이지 커버 (`og:image`) | First image in the content
+`image` | 페이지 커버 (`og:image`) | Every image in the content
 `site_name` | 사이트 이름 (`og:site_name`) | `config.title`
 `description` | 페이지 설명 (`og:description`) | Page excerpt or first 200 characters of the content
 `twitter_card` | Twitter card type (`twitter:card`) | summary
@@ -706,6 +706,14 @@ Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 `google_plus` | Google+ profile link |
 `fb_admins` | Facebook admin ID |
 `fb_app_id` | Facebook App ID |
+`date` | Article published date | `page.date` if exists
+`updated` | Article modified time | `page.updated` if exists
+`language` | Article language | `page.lang` or `config.language`
+
+{% note warn %}
+`og:locale` tag won't be added if given `language` is not in 'language-TERRITORY' (_dash must be used for multilingual support, dash is automatically transformed to underscore in `og:locale`_) format. Refer to the [official list](https://developers.facebook.com/docs/messenger-platform/messenger-profile/supported-locales/) of valid locales.
+{% endnote %}
+
 
 ### toc
 
